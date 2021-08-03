@@ -4,7 +4,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
 // IMPORTING ALL CONTROLLERS/HANDLERS
-const signIn = require("./Controllers/signin.js");
+const signIn = require("./Controllers/signIn.js");
 const register = require('./Controllers/register.js');
 const profile = require('./Controllers/profile.js');
 const image = require('./Controllers/image.js');
@@ -39,6 +39,6 @@ app.get("/profile/:id",(req,res) => { profile.handleProfile(db, req, res) });
 app.put("/image",(req,res) => { image.handleImage(db, req, res) });
 app.post("/imageURL",(req,res) => { image.handleAPIcall(req, res) });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`It is working on PORT ${process.env.PORT}`);
+app.listen(process.env.PORT || 3001, () => {
+    console.log(`It is working on PORT ${process.env.PORT || 3001}`);
 });
