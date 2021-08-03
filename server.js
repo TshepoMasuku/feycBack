@@ -9,12 +9,21 @@ const register = require('./Controllers/register.js');
 const profile = require('./Controllers/profile.js');
 const image = require('./Controllers/image.js');
 
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+// const db = knex({
+//     client: "pg",
+//     connection: {
+//         connectionString: process.env.DATABASE_URL,
+//         ssl: true
+//     }
+// })
 const db = knex({
     client: "pg",
     connection: {
-        host: "postgresql-angular-33008",
+        // host: "postgresql-angular-33008",
+        host: "127.0.0.1",
         user: "postgres",
-        password: "",
+        password: "7852",
         database: "smartbrain"
     }
 })
@@ -39,6 +48,6 @@ app.get("/profile/:id",(req,res) => { profile.handleProfile(db, req, res) });
 app.put("/image",(req,res) => { image.handleImage(db, req, res) });
 app.post("/imageURL",(req,res) => { image.handleAPIcall(req, res) });
 
-app.listen(process.env.PORT || 3001, () => {
-    console.log(`It is working on PORT ${process.env.PORT || 3001}`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`It is working on PORT ${process.env.PORT || 3000}`);
 });
