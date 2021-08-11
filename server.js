@@ -37,11 +37,12 @@ app.use( express.urlencoded({extended: false}) );
 app.use( cors() );
 
 
-// SIMPLE API EXAMPLE
-app.get("/",(req,res) => {
-    db.select("*").from("users")
-        .then(users => res.json(users));
-});
+// SIMPLE API EXAMPLES
+app.get("/",(req,res) => { res.send(" <h1> SERVER IS WORKING... ;~) </h1> ") });
+// app.get("/",(req,res) => {
+//     db.select("*").from("users")
+//         .then(users => res.json(users));
+// });
 
 app.post("/signIn",(req,res) => { signIn.handleSignIn(db, bcrypt, req, res) });
 app.post("/register", (req,res) => { register.handleRegister(db, bcrypt, req, res) });
@@ -50,5 +51,5 @@ app.put("/image",(req,res) => { image.handleImage(db, req, res) });
 app.post("/imageURL",(req,res) => { image.handleAPIcall(req, res) });
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`It is working on PORT ${process.env.PORT || 3000}`);
+    console.log(`SERVER is working on PORT ${process.env.PORT || 3000}`);
 });
