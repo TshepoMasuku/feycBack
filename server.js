@@ -9,6 +9,7 @@ const register = require('./Controllers/register.js');
 const profile = require('./Controllers/profile.js');
 const image = require('./Controllers/image.js');
 
+
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 // const db = knex({
 //     client: "pg",
