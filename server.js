@@ -10,24 +10,25 @@ const profile = require('./Controllers/profile.js');
 const image = require('./Controllers/image.js');
 
 
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-// const db = knex({
-//     client: "pg",
-//     connection: {
-//         connectionString: process.env.DATABASE_URL,
-//         ssl: true
-//     }
-// })
+// FOR RUNNING SERVER ON HEROKU
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const db = knex({
     client: "pg",
     connection: {
-        // host: "postgresql-angular-33008",
-        host: "127.0.0.1",
-        user: "postgres",
-        password: "7852",
-        database: "smartbrain"
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
     }
 })
+// FOR RUNNING SERVER LOCALLY
+// const db = knex({
+//     client: "pg",
+//     connection: {
+//         host: "127.0.0.1",
+//         user: "postgres",
+//         password: "",
+//         database: "smartbrain"
+//     }
+// })
 
 const app = express();
 
