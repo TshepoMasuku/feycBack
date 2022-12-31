@@ -5,12 +5,6 @@ const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
 const Clarifai = require('clarifai'); 
-// IMPORTING ALL CONTROLLERS/HANDLERS
-const signIn = require("./Controllers/signIn.js");
-const register = require('./Controllers/register.js');
-const profile = require('./Controllers/profile.js');
-const image = require('./Controllers/image.js');
-
 
 const appClarifai = new Clarifai.App({ 
     apiKey:  process.env.API_CLARIFAI 
@@ -38,7 +32,7 @@ app.use( cors() );
 
 // SIMPLE API EXAMPLES
 app.get("/",(req,res) => { 
-    res.send(` <h1> SERVER IS WORKING  ;~) <br> on PORT ${process.env.PORT} </h1> `) 
+    res.send(` <h1> SERVER IS WORKING  ;~) <br> ...on PORT ${process.env.PORT} </h1> `) 
 });
 app.get("/",(req,res) => {
     db.select("*").from("users")
@@ -111,6 +105,14 @@ app.get("/profile/:id",(req, res, db) => {
 });
 
 
+app.post("/imageURL",(req,res) => { 
+    appClarifai.models
+        .predict(Clarifai.FACE_DETECT_MODEL, req.body.input) 
+        .then(data => res.json(data))
+        .catch(err => res.status(400).json('unable to work with API.'))
+});
+
+
 app.put("/image",(req, res, db) => { 
     const { id } = req.body;
     db("users").where("id","=",id)
@@ -121,17 +123,9 @@ app.put("/image",(req, res, db) => {
 });
 
 
-app.post("/imageURL",(req,res) => { 
-    appClarifai.models
-        .predict(Clarifai.FACE_DETECT_MODEL, req.body.input) 
-        .then(data => res.json(data))
-        .catch(err => res.status(400).json('unable to work with API.'))
-});
-
-
 app.listen(process.env.PORT, () => { 
     console.log(`
-        SERVER is working on PORT ${process.env.PORT} 
+        SERVER is working on PORT ${process.env.PORT}
         on Node_Environment: ${process.env.NODE_ENV}.
     `);
 });
