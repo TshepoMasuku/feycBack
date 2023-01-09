@@ -16,7 +16,7 @@ const image = require('./Controllers/image.js');
 // FOR RUNNING SERVER ONLINE 
 const db = knex({
     client: "pg",
-    connection: {
+    connection: process.env.POSTGRES_URL || {
         host: client.host,
         user: client.user,
         password: process.env.DATABASE_PASSWORD,
