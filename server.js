@@ -4,6 +4,8 @@ const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
+// FOR RUNNING SERVER ONLINE 
+const client = require('./elephantsql');
 // IMPORTING ALL CONTROLLERS/HANDLERS
 const signIn = require("./Controllers/signIn.js");
 const register = require('./Controllers/register.js');
@@ -12,7 +14,6 @@ const image = require('./Controllers/image.js');
 
 
 // FOR RUNNING SERVER ONLINE 
-const client = require('./elephantsql');
 const db = knex({
     client: "pg",
     connection: {
