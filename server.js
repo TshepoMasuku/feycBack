@@ -11,20 +11,28 @@ const profile = require('./Controllers/profile.js');
 const image = require('./Controllers/image.js');
 
 
-const PORT = process.env.PORT;
-const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
-
-
-// FOR RUNNING SERVER LOCALLY
+// FOR RUNNING SERVER ONLINE 
+const client = require('./elephantsql');
 const db = knex({
     client: "pg",
     connection: {
-        host: "127.0.0.1",
-        user: "postgres",
-        password: DATABASE_PASSWORD,
-        database: "smartbrain"
+        host: client.host,
+        user: client.user,
+        password: process.env.DATABASE_PASSWORD,
+        database: client.database
     }
 })
+
+// FOR RUNNING SERVER LOCALLY 
+// const db = knex({
+//     client: "pg",
+//     connection: {
+//         host: "127.0.0.1",
+//         user: "postgres",
+//         password: process.env.DATABASE_PASSWORD,
+//         database: "smartbrain"
+//     }
+// })
 
 
 const app = express();
@@ -35,7 +43,9 @@ app.use( cors() );
 
 
 // SIMPLE API EXAMPLES
-app.get("/",(req,res) => { res.send(` <h1> SERVER IS WORKING...</br > on PORT ${PORT}  ;~) </h1> `) });
+app.get("/",(req,res) => { 
+    res.send(` <h1> SERVER IS WORKING...</br > on PORT ${process.env.PORT}  ;~) </h1> `) 
+});
 app.get("/",(req,res) => {
     db.select("*").from("users")
         .then(users => res.json(users));
@@ -47,10 +57,11 @@ app.get("/profile/:id",(req,res) => { profile.handleProfile(db, req, res) });
 app.put("/image",(req,res) => { image.handleImage(db, req, res) });
 app.post("/imageURL",(req,res) => { image.handleAPIcall(req, res) });
 
-app.listen(PORT, () => {
-    console.log(
-        `SERVER is working on PORT ${PORT} ...The process.env.NODE_ENV is ${process.env.NODE_ENV}.`
-    );
+app.listen(process.env.PORT, () => {
+    console.log(`
+        SERVER is working on PORT ${process.env.PORT} 
+        ...The process.env.NODE_ENV is ${process.env.NODE_ENV}.
+    `);
 });
 
 // Export the Express API 
