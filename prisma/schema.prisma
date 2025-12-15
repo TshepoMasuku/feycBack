@@ -1,20 +1,29 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
-datasource local_db {
+datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL_LOCAL")
+  url      = env("DATABASE_URL")
 }
 
-datasource cloud_db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL_CLOUD")
+model users {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  entries Int?
+  joined  DateTime @default(now())
+  name    String?
+  surname String?
+}
+
+model login {
+  id    Int      @id @default(autoincrement())
+  email String   @unique
+  hash  String   @unique
 }
