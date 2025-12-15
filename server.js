@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
-const prisma = require('prisma.js');
+const prisma = require('./prisma.js');
 
 // IMPORTING ALL CONTROLLERS/HANDLERS
 const signIn = require("./Controllers/signIn.js");
