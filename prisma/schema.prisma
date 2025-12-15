@@ -16,7 +16,7 @@ datasource db {
 model users {
   id      Int      @id @default(autoincrement())
   email   String   @unique
-  entries Int?
+  entries Int      @default(0)
   joined  DateTime @default(now())
   name    String?
   surname String?

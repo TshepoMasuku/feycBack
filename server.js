@@ -6,23 +6,17 @@ const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
 const prisma = require('./prisma.js');
 
-// IMPORTING ALL CONTROLLERS/HANDLERS
-const signIn = require("./Controllers/signIn.js");
-const register = require("./Controllers/register.js");
-const profile = require("./Controllers/profile.js");
-const image = require("./Controllers/image.js");
+// IMPORTING ALL CONTROLLERS/HANDLERS FOR RUNNING SERVER LOCALLY
+// const signIn = require("./Controllers/knex/signIn.js");
+// const register = require("./Controllers/knex/register.js");
+// const profile = require("./Controllers/knex/profile.js");
+// const image = require("./Controllers/knex/image.js");
+// IMPORTING ALL CONTROLLERS/HANDLERS FOR RUNNING SERVER ONLINE
+const signIn = require("./Controllers/prisma/signIn.js");
+const register = require("./Controllers/prisma/register.js");
+const profile = require("./Controllers/prisma/profile.js");
+const image = require("./Controllers/prisma/image.js");
 
-
-// FOR RUNNING SERVER ONLINE
-const db = knex({
-  client: "pg",
-  connection: process.env.DATABASE_URL_CLOUDD || {
-    host: process.env.DATABASE_HOST_CLOUD,
-    user: process.env.DATABASE_USER_CLOUD,
-    password: process.env.DATABASE_PASSWORD_CLOUD,
-    database: process.env.DATABASE_NAME_CLOUD,
-  },
-});
 
 // FOR RUNNING SERVER LOCALLY
 // const db = knex({
@@ -65,6 +59,22 @@ app.get("/users", async (req, res) => {
   }
 });
 
+app.post("/signIn", (req, res) => {
+  signIn.handleSignIn(prisma, bcrypt, req, res);
+});
+app.post("/register", (req, res) => {
+  register.handleRegister(prisma, bcrypt, req, res);
+});
+app.get("/profile/:id", (req, res) => {
+  profile.handleProfile(prisma, req, res);
+});
+app.put("/image", (req, res) => {
+  image.handleImage(prisma, req, res);
+});
+app.post("/imageURL", (req, res) => {
+  image.handleAPIcall(req, res);
+});
+
 
 // FOR RUNNING SERVER LOCALLY
 // Only allows you to display the response once per sent request.
@@ -83,22 +93,21 @@ app.get("/users", async (req, res) => {
 //     .then((users) => res.json(users));
 // });
 
-
-app.post("/signIn", (req, res) => {
-  signIn.handleSignIn(db, bcrypt, req, res);
-});
-app.post("/register", (req, res) => {
-  register.handleRegister(db, bcrypt, req, res);
-});
-app.get("/profile/:id", (req, res) => {
-  profile.handleProfile(db, req, res);
-});
-app.put("/image", (req, res) => {
-  image.handleImage(db, req, res);
-});
-app.post("/imageURL", (req, res) => {
-  image.handleAPIcall(req, res);
-});
+// app.post("/signIn", (req, res) => {
+//   signIn.handleSignIn(db, bcrypt, req, res);
+// });
+// app.post("/register", (req, res) => {
+//   register.handleRegister(db, bcrypt, req, res);
+// });
+// app.get("/profile/:id", (req, res) => {
+//   profile.handleProfile(db, req, res);
+// });
+// app.put("/image", (req, res) => {
+//   image.handleImage(db, req, res);
+// });
+// app.post("/imageURL", (req, res) => {
+//   image.handleAPIcall(req, res);
+// });
 
 app.listen(process.env.PORT, () => {
   console.log(`
