@@ -1,5 +1,5 @@
-const { PrismaClient } = require('@prisma/client/edge');
-const { withAccelerate } = require('@prisma/extension-accelerate');
+const { PrismaClient } = require('./generated/prisma/client');
+const { withAccelerate } = require('./generated/prisma/extension-accelerate');
 
 let prisma;
 

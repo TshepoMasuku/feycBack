@@ -1,6 +1,6 @@
 {
   "name": "feycback",
-  "version": "2.1.0",
+  "version": "2.2.2",
   "description": "",
   "homepage": "https://github.com/TshepoMasuku/feycback#readme",
   "bugs": {
@@ -18,6 +18,8 @@
     "start": "node server.js",
     "start:dev": "nodemon server.js",
     "db:studio": "prisma studio",
+    "prisma:version": "npx prisma -v",
+    "prisma:generate": "npx prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -29,15 +31,15 @@
     "dotenv-flow": "^3.2.0",
     "express": "^4.22.1",
     "knex": "^2.4.0",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "prisma": "^6.19.1"
   },
   "devDependencies": {
     "dotenv": "^17.2.3",
-    "nodemon": "^2.0.7",
-    "prisma": "^6.19.1"
+    "nodemon": "^2.0.7"
   },
   "engines": {
-    "node": "24.11.1",
-    "npm": "11.6.2"
+    "node": "24.12.0",
+    "npm": "11.0.0"
   }
 }

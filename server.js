@@ -4,7 +4,10 @@ const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
-const prisma = require('./prisma.js');
+// const { PrismaClient } = require('./generated/prisma/client');
+// const { withAccelerate } = require('./generated/prisma/extension-accelerate');
+const { PrismaClient } = require('@prisma/client');
+const { withAccelerate } = require('@prisma/extension-accelerate');
 
 // IMPORTING ALL CONTROLLERS/HANDLERS FOR RUNNING SERVER LOCALLY
 // const signIn = require("./Controllers/knex/signIn.js");
@@ -37,6 +40,17 @@ app.use(cors());
 
 
 // FOR RUNNING SERVER ONLINE
+let prisma;
+if (process.env.NODE_ENV === 'production') {
+  prisma = new PrismaClient().$extends(withAccelerate());
+} else {
+  // Prevent multiple instances during development
+  if (!global.prisma) {
+    global.prisma = new PrismaClient().$extends(withAccelerate());
+  }
+  prisma = global.prisma;
+}
+
 // Test database connection -- Online db server using Prisma Client.
 app.get("/", async (req, res) => {
   try {
@@ -116,5 +130,4 @@ app.listen(process.env.PORT, () => {
     `);
 });
 
-// Export the Express API
 module.exports = app;
