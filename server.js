@@ -2,54 +2,25 @@
 require("dotenv-flow").config();
 const express = require("express");
 const cors = require("cors");
-const bcrypt = require("bcrypt-nodejs");
-const knex = require("knex");
-// const { PrismaClient } = require('./generated/prisma/client');
-// const { withAccelerate } = require('./generated/prisma/extension-accelerate');
-const { PrismaClient } = require('@prisma/client');
-const { withAccelerate } = require('@prisma/extension-accelerate');
+const bcrypt = require("bcrypt");
+const { PrismaClient } = require("./prisma/generated/client.mts");
+const { withAccelerate } = require("@prisma/extension-accelerate");
 
-// IMPORTING ALL CONTROLLERS/HANDLERS FOR RUNNING SERVER LOCALLY
-// const signIn = require("./Controllers/knex/signIn.js");
-// const register = require("./Controllers/knex/register.js");
-// const profile = require("./Controllers/knex/profile.js");
-// const image = require("./Controllers/knex/image.js");
-// IMPORTING ALL CONTROLLERS/HANDLERS FOR RUNNING SERVER ONLINE
+// IMPORTING ALL CONTROLLERS/HANDLERS
 const signIn = require("./Controllers/prisma/signIn.js");
 const register = require("./Controllers/prisma/register.js");
 const profile = require("./Controllers/prisma/profile.js");
 const image = require("./Controllers/prisma/image.js");
 
-
-// FOR RUNNING SERVER LOCALLY
-// const db = knex({
-//     client: "pg",
-//     connection: {
-//         host: "127.0.0.1",
-//         user: "postgres",
-//         password: process.env.DATABASE_PASSWORD_LOCAL,
-//         database: "smartbrain"
-//     }
-// })
-
+// INITIALIZING THE EXPRESS APP AND PRISMA CLIENT
+const prisma = new PrismaClient().$extends(withAccelerate());
 const app = express();
+
 // MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-
-// FOR RUNNING SERVER ONLINE
-let prisma;
-if (process.env.NODE_ENV === 'production') {
-  prisma = new PrismaClient().$extends(withAccelerate());
-} else {
-  // Prevent multiple instances during development
-  if (!global.prisma) {
-    global.prisma = new PrismaClient().$extends(withAccelerate());
-  }
-  prisma = global.prisma;
-}
 
 // Test database connection -- Online db server using Prisma Client.
 app.get("/", async (req, res) => {
@@ -57,9 +28,9 @@ app.get("/", async (req, res) => {
     await prisma.$connect();
     res.json({ message: "Connected to Prisma Postgres!" });
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Database connection failed", details: error.message });
+    res.status(500).json({ 
+      error: "Database connection failed", details: error.message
+    });
   }
 });
 
@@ -90,44 +61,12 @@ app.post("/imageURL", (req, res) => {
 });
 
 
-// FOR RUNNING SERVER LOCALLY
-// Only allows you to display the response once per sent request.
-// Shows that server is working on a specified port. Comment out if you want get all users from local db.
-// app.get("", () => {});
-// app.get("/", (req, res) => {
-//   res.send(
-//     ` <h1> SERVER IS WORKING...</br > on PORT ${process.env.PORT}  ;~) </h1> `
-//   );
-// });
-
-// Get all users -- local db server.
-// app.get("/", (req, res) => {
-//   db.select("*")
-//     .from("users")
-//     .then((users) => res.json(users));
-// });
-
-// app.post("/signIn", (req, res) => {
-//   signIn.handleSignIn(db, bcrypt, req, res);
-// });
-// app.post("/register", (req, res) => {
-//   register.handleRegister(db, bcrypt, req, res);
-// });
-// app.get("/profile/:id", (req, res) => {
-//   profile.handleProfile(db, req, res);
-// });
-// app.put("/image", (req, res) => {
-//   image.handleImage(db, req, res);
-// });
-// app.post("/imageURL", (req, res) => {
-//   image.handleAPIcall(req, res);
-// });
-
+// SERVER LISTENING PORT
 app.listen(process.env.PORT, () => {
   console.log(`
-        SERVER is working on PORT ${process.env.PORT} 
-        ...The process.env.NODE_ENV is ${process.env.NODE_ENV}.
-    `);
+    SERVER is working on PORT ${process.env.PORT} \n
+    The process.env.NODE_ENV is ${process.env.NODE_ENV}.
+  `);
 });
 
 module.exports = app;
