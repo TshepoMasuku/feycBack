@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `Login` model and its related types.
+ * This file exports the `login` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.mts"
 import type * as Prisma from "../internal/prismaNamespace.mts"
 
 /**
- * Model Login
+ * Model login
  * 
  */
-export type LoginModel = runtime.Types.Result.DefaultSelection<Prisma.$LoginPayload>
+export type loginModel = runtime.Types.Result.DefaultSelection<Prisma.$loginPayload>
 
 export type AggregateLogin = {
   _count: LoginCountAggregateOutputType | null
@@ -83,37 +83,37 @@ export type LoginCountAggregateInputType = {
 
 export type LoginAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Login to aggregate.
+   * Filter which login to aggregate.
    */
-  where?: Prisma.LoginWhereInput
+  where?: Prisma.loginWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Logins to fetch.
+   * Determine the order of logins to fetch.
    */
-  orderBy?: Prisma.LoginOrderByWithRelationInput | Prisma.LoginOrderByWithRelationInput[]
+  orderBy?: Prisma.loginOrderByWithRelationInput | Prisma.loginOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.LoginWhereUniqueInput
+  cursor?: Prisma.loginWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Logins from the position of the cursor.
+   * Take `±n` logins from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Logins.
+   * Skip the first `n` logins.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned Logins
+   * Count returned logins
   **/
   _count?: true | LoginCountAggregateInputType
   /**
@@ -153,11 +153,11 @@ export type GetLoginAggregateType<T extends LoginAggregateArgs> = {
 
 
 
-export type LoginGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.LoginWhereInput
-  orderBy?: Prisma.LoginOrderByWithAggregationInput | Prisma.LoginOrderByWithAggregationInput[]
+export type loginGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.loginWhereInput
+  orderBy?: Prisma.loginOrderByWithAggregationInput | Prisma.loginOrderByWithAggregationInput[]
   by: Prisma.LoginScalarFieldEnum[] | Prisma.LoginScalarFieldEnum
-  having?: Prisma.LoginScalarWhereWithAggregatesInput
+  having?: Prisma.loginScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: LoginCountAggregateInputType | true
@@ -178,7 +178,7 @@ export type LoginGroupByOutputType = {
   _max: LoginMaxAggregateOutputType | null
 }
 
-type GetLoginGroupByPayload<T extends LoginGroupByArgs> = Prisma.PrismaPromise<
+type GetLoginGroupByPayload<T extends loginGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<LoginGroupByOutputType, T['by']> &
       {
@@ -193,145 +193,145 @@ type GetLoginGroupByPayload<T extends LoginGroupByArgs> = Prisma.PrismaPromise<
 
 
 
-export type LoginWhereInput = {
-  AND?: Prisma.LoginWhereInput | Prisma.LoginWhereInput[]
-  OR?: Prisma.LoginWhereInput[]
-  NOT?: Prisma.LoginWhereInput | Prisma.LoginWhereInput[]
-  id?: Prisma.IntFilter<"Login"> | number
-  email?: Prisma.StringFilter<"Login"> | string
-  hash?: Prisma.StringFilter<"Login"> | string
+export type loginWhereInput = {
+  AND?: Prisma.loginWhereInput | Prisma.loginWhereInput[]
+  OR?: Prisma.loginWhereInput[]
+  NOT?: Prisma.loginWhereInput | Prisma.loginWhereInput[]
+  id?: Prisma.IntFilter<"login"> | number
+  email?: Prisma.StringFilter<"login"> | string
+  hash?: Prisma.StringFilter<"login"> | string
 }
 
-export type LoginOrderByWithRelationInput = {
+export type loginOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   hash?: Prisma.SortOrder
 }
 
-export type LoginWhereUniqueInput = Prisma.AtLeast<{
+export type loginWhereUniqueInput = Prisma.AtLeast<{
   id?: number
   email?: string
   hash?: string
-  AND?: Prisma.LoginWhereInput | Prisma.LoginWhereInput[]
-  OR?: Prisma.LoginWhereInput[]
-  NOT?: Prisma.LoginWhereInput | Prisma.LoginWhereInput[]
+  AND?: Prisma.loginWhereInput | Prisma.loginWhereInput[]
+  OR?: Prisma.loginWhereInput[]
+  NOT?: Prisma.loginWhereInput | Prisma.loginWhereInput[]
 }, "id" | "email" | "hash">
 
-export type LoginOrderByWithAggregationInput = {
+export type loginOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   hash?: Prisma.SortOrder
-  _count?: Prisma.LoginCountOrderByAggregateInput
-  _avg?: Prisma.LoginAvgOrderByAggregateInput
-  _max?: Prisma.LoginMaxOrderByAggregateInput
-  _min?: Prisma.LoginMinOrderByAggregateInput
-  _sum?: Prisma.LoginSumOrderByAggregateInput
+  _count?: Prisma.loginCountOrderByAggregateInput
+  _avg?: Prisma.loginAvgOrderByAggregateInput
+  _max?: Prisma.loginMaxOrderByAggregateInput
+  _min?: Prisma.loginMinOrderByAggregateInput
+  _sum?: Prisma.loginSumOrderByAggregateInput
 }
 
-export type LoginScalarWhereWithAggregatesInput = {
-  AND?: Prisma.LoginScalarWhereWithAggregatesInput | Prisma.LoginScalarWhereWithAggregatesInput[]
-  OR?: Prisma.LoginScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.LoginScalarWhereWithAggregatesInput | Prisma.LoginScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Login"> | number
-  email?: Prisma.StringWithAggregatesFilter<"Login"> | string
-  hash?: Prisma.StringWithAggregatesFilter<"Login"> | string
+export type loginScalarWhereWithAggregatesInput = {
+  AND?: Prisma.loginScalarWhereWithAggregatesInput | Prisma.loginScalarWhereWithAggregatesInput[]
+  OR?: Prisma.loginScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.loginScalarWhereWithAggregatesInput | Prisma.loginScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"login"> | number
+  email?: Prisma.StringWithAggregatesFilter<"login"> | string
+  hash?: Prisma.StringWithAggregatesFilter<"login"> | string
 }
 
-export type LoginCreateInput = {
+export type loginCreateInput = {
   email: string
   hash: string
 }
 
-export type LoginUncheckedCreateInput = {
+export type loginUncheckedCreateInput = {
   id?: number
   email: string
   hash: string
 }
 
-export type LoginUpdateInput = {
+export type loginUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type LoginUncheckedUpdateInput = {
+export type loginUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type LoginCreateManyInput = {
+export type loginCreateManyInput = {
   id?: number
   email: string
   hash: string
 }
 
-export type LoginUpdateManyMutationInput = {
+export type loginUpdateManyMutationInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type LoginUncheckedUpdateManyInput = {
+export type loginUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type LoginCountOrderByAggregateInput = {
+export type loginCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   hash?: Prisma.SortOrder
 }
 
-export type LoginAvgOrderByAggregateInput = {
+export type loginAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
-export type LoginMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  hash?: Prisma.SortOrder
-}
-
-export type LoginMinOrderByAggregateInput = {
+export type loginMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   hash?: Prisma.SortOrder
 }
 
-export type LoginSumOrderByAggregateInput = {
+export type loginMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  hash?: Prisma.SortOrder
+}
+
+export type loginSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
 
 
-export type LoginSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type loginSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   email?: boolean
   hash?: boolean
 }, ExtArgs["result"]["login"]>
 
-export type LoginSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type loginSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   email?: boolean
   hash?: boolean
 }, ExtArgs["result"]["login"]>
 
-export type LoginSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type loginSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   email?: boolean
   hash?: boolean
 }, ExtArgs["result"]["login"]>
 
-export type LoginSelectScalar = {
+export type loginSelectScalar = {
   id?: boolean
   email?: boolean
   hash?: boolean
 }
 
-export type LoginOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "hash", ExtArgs["result"]["login"]>
+export type loginOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "hash", ExtArgs["result"]["login"]>
 
-export type $LoginPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "Login"
+export type $loginPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "login"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -341,18 +341,18 @@ export type $LoginPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   composites: {}
 }
 
-export type LoginGetPayload<S extends boolean | null | undefined | LoginDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$LoginPayload, S>
+export type loginGetPayload<S extends boolean | null | undefined | loginDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$loginPayload, S>
 
-export type LoginCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<LoginFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type loginCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<loginFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: LoginCountAggregateInputType | true
   }
 
-export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Login'], meta: { name: 'Login' } }
+export interface loginDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['login'], meta: { name: 'login' } }
   /**
    * Find zero or one Login that matches the filter.
-   * @param {LoginFindUniqueArgs} args - Arguments to find a Login
+   * @param {loginFindUniqueArgs} args - Arguments to find a Login
    * @example
    * // Get one Login
    * const login = await prisma.login.findUnique({
@@ -361,12 +361,12 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findUnique<T extends LoginFindUniqueArgs>(args: Prisma.SelectSubset<T, LoginFindUniqueArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends loginFindUniqueArgs>(args: Prisma.SelectSubset<T, loginFindUniqueArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Login that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {LoginFindUniqueOrThrowArgs} args - Arguments to find a Login
+   * @param {loginFindUniqueOrThrowArgs} args - Arguments to find a Login
    * @example
    * // Get one Login
    * const login = await prisma.login.findUniqueOrThrow({
@@ -375,13 +375,13 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findUniqueOrThrow<T extends LoginFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, LoginFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends loginFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, loginFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Login that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {LoginFindFirstArgs} args - Arguments to find a Login
+   * @param {loginFindFirstArgs} args - Arguments to find a Login
    * @example
    * // Get one Login
    * const login = await prisma.login.findFirst({
@@ -390,14 +390,14 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findFirst<T extends LoginFindFirstArgs>(args?: Prisma.SelectSubset<T, LoginFindFirstArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends loginFindFirstArgs>(args?: Prisma.SelectSubset<T, loginFindFirstArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Login that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {LoginFindFirstOrThrowArgs} args - Arguments to find a Login
+   * @param {loginFindFirstOrThrowArgs} args - Arguments to find a Login
    * @example
    * // Get one Login
    * const login = await prisma.login.findFirstOrThrow({
@@ -406,13 +406,13 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  findFirstOrThrow<T extends LoginFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, LoginFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends loginFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, loginFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Logins that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {LoginFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {loginFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Logins
    * const logins = await prisma.login.findMany()
@@ -424,11 +424,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * const loginWithIdOnly = await prisma.login.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends LoginFindManyArgs>(args?: Prisma.SelectSubset<T, LoginFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends loginFindManyArgs>(args?: Prisma.SelectSubset<T, loginFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Login.
-   * @param {LoginCreateArgs} args - Arguments to create a Login.
+   * @param {loginCreateArgs} args - Arguments to create a Login.
    * @example
    * // Create one Login
    * const Login = await prisma.login.create({
@@ -438,11 +438,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  create<T extends LoginCreateArgs>(args: Prisma.SelectSubset<T, LoginCreateArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends loginCreateArgs>(args: Prisma.SelectSubset<T, loginCreateArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Logins.
-   * @param {LoginCreateManyArgs} args - Arguments to create many Logins.
+   * @param {loginCreateManyArgs} args - Arguments to create many Logins.
    * @example
    * // Create many Logins
    * const login = await prisma.login.createMany({
@@ -452,11 +452,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    *     
    */
-  createMany<T extends LoginCreateManyArgs>(args?: Prisma.SelectSubset<T, LoginCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends loginCreateManyArgs>(args?: Prisma.SelectSubset<T, loginCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create many Logins and returns the data saved in the database.
-   * @param {LoginCreateManyAndReturnArgs} args - Arguments to create many Logins.
+   * @param {loginCreateManyAndReturnArgs} args - Arguments to create many Logins.
    * @example
    * // Create many Logins
    * const login = await prisma.login.createManyAndReturn({
@@ -476,11 +476,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  createManyAndReturn<T extends LoginCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, LoginCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+  createManyAndReturn<T extends loginCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, loginCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Delete a Login.
-   * @param {LoginDeleteArgs} args - Arguments to delete one Login.
+   * @param {loginDeleteArgs} args - Arguments to delete one Login.
    * @example
    * // Delete one Login
    * const Login = await prisma.login.delete({
@@ -490,11 +490,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  delete<T extends LoginDeleteArgs>(args: Prisma.SelectSubset<T, LoginDeleteArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends loginDeleteArgs>(args: Prisma.SelectSubset<T, loginDeleteArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Login.
-   * @param {LoginUpdateArgs} args - Arguments to update one Login.
+   * @param {loginUpdateArgs} args - Arguments to update one Login.
    * @example
    * // Update one Login
    * const login = await prisma.login.update({
@@ -507,11 +507,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  update<T extends LoginUpdateArgs>(args: Prisma.SelectSubset<T, LoginUpdateArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends loginUpdateArgs>(args: Prisma.SelectSubset<T, loginUpdateArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Logins.
-   * @param {LoginDeleteManyArgs} args - Arguments to filter Logins to delete.
+   * @param {loginDeleteManyArgs} args - Arguments to filter Logins to delete.
    * @example
    * // Delete a few Logins
    * const { count } = await prisma.login.deleteMany({
@@ -521,13 +521,13 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  deleteMany<T extends LoginDeleteManyArgs>(args?: Prisma.SelectSubset<T, LoginDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends loginDeleteManyArgs>(args?: Prisma.SelectSubset<T, loginDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Logins.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {LoginUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {loginUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Logins
    * const login = await prisma.login.updateMany({
@@ -540,11 +540,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * })
    * 
    */
-  updateMany<T extends LoginUpdateManyArgs>(args: Prisma.SelectSubset<T, LoginUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends loginUpdateManyArgs>(args: Prisma.SelectSubset<T, loginUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Logins and returns the data updated in the database.
-   * @param {LoginUpdateManyAndReturnArgs} args - Arguments to update many Logins.
+   * @param {loginUpdateManyAndReturnArgs} args - Arguments to update many Logins.
    * @example
    * // Update many Logins
    * const login = await prisma.login.updateManyAndReturn({
@@ -570,11 +570,11 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  updateManyAndReturn<T extends LoginUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, LoginUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+  updateManyAndReturn<T extends loginUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, loginUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Login.
-   * @param {LoginUpsertArgs} args - Arguments to update or create a Login.
+   * @param {loginUpsertArgs} args - Arguments to update or create a Login.
    * @example
    * // Update or create a Login
    * const login = await prisma.login.upsert({
@@ -589,14 +589,14 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
    */
-  upsert<T extends LoginUpsertArgs>(args: Prisma.SelectSubset<T, LoginUpsertArgs<ExtArgs>>): Prisma.Prisma__LoginClient<runtime.Types.Result.GetResult<Prisma.$LoginPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends loginUpsertArgs>(args: Prisma.SelectSubset<T, loginUpsertArgs<ExtArgs>>): Prisma.Prisma__loginClient<runtime.Types.Result.GetResult<Prisma.$loginPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Logins.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {LoginCountArgs} args - Arguments to filter Logins to count.
+   * @param {loginCountArgs} args - Arguments to filter Logins to count.
    * @example
    * // Count the number of Logins
    * const count = await prisma.login.count({
@@ -605,8 +605,8 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   }
    * })
   **/
-  count<T extends LoginCountArgs>(
-    args?: Prisma.Subset<T, LoginCountArgs>,
+  count<T extends loginCountArgs>(
+    args?: Prisma.Subset<T, loginCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -645,7 +645,7 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * Group by Login.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {LoginGroupByArgs} args - Group by arguments.
+   * @param {loginGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -660,14 +660,14 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * 
   **/
   groupBy<
-    T extends LoginGroupByArgs,
+    T extends loginGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: LoginGroupByArgs['orderBy'] }
-      : { orderBy?: LoginGroupByArgs['orderBy'] },
+      ? { orderBy: loginGroupByArgs['orderBy'] }
+      : { orderBy?: loginGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -716,20 +716,20 @@ export interface LoginDelegate<ExtArgs extends runtime.Types.Extensions.Internal
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, LoginGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLoginGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, loginGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLoginGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the Login model
+ * Fields of the login model
  */
-readonly fields: LoginFieldRefs;
+readonly fields: loginFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for Login.
+ * The delegate class that acts as a "Promise-like" for login.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__LoginClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__loginClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -757,373 +757,373 @@ export interface Prisma__LoginClient<T, Null = never, ExtArgs extends runtime.Ty
 
 
 /**
- * Fields of the Login model
+ * Fields of the login model
  */
-export interface LoginFieldRefs {
-  readonly id: Prisma.FieldRef<"Login", 'Int'>
-  readonly email: Prisma.FieldRef<"Login", 'String'>
-  readonly hash: Prisma.FieldRef<"Login", 'String'>
+export interface loginFieldRefs {
+  readonly id: Prisma.FieldRef<"login", 'Int'>
+  readonly email: Prisma.FieldRef<"login", 'String'>
+  readonly hash: Prisma.FieldRef<"login", 'String'>
 }
     
 
 // Custom InputTypes
 /**
- * Login findUnique
+ * login findUnique
  */
-export type LoginFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * Filter, which Login to fetch.
+   * Filter, which login to fetch.
    */
-  where: Prisma.LoginWhereUniqueInput
+  where: Prisma.loginWhereUniqueInput
 }
 
 /**
- * Login findUniqueOrThrow
+ * login findUniqueOrThrow
  */
-export type LoginFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * Filter, which Login to fetch.
+   * Filter, which login to fetch.
    */
-  where: Prisma.LoginWhereUniqueInput
+  where: Prisma.loginWhereUniqueInput
 }
 
 /**
- * Login findFirst
+ * login findFirst
  */
-export type LoginFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * Filter, which Login to fetch.
+   * Filter, which login to fetch.
    */
-  where?: Prisma.LoginWhereInput
+  where?: Prisma.loginWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Logins to fetch.
+   * Determine the order of logins to fetch.
    */
-  orderBy?: Prisma.LoginOrderByWithRelationInput | Prisma.LoginOrderByWithRelationInput[]
+  orderBy?: Prisma.loginOrderByWithRelationInput | Prisma.loginOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Logins.
+   * Sets the position for searching for logins.
    */
-  cursor?: Prisma.LoginWhereUniqueInput
+  cursor?: Prisma.loginWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Logins from the position of the cursor.
+   * Take `±n` logins from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Logins.
+   * Skip the first `n` logins.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Logins.
+   * Filter by unique combinations of logins.
    */
   distinct?: Prisma.LoginScalarFieldEnum | Prisma.LoginScalarFieldEnum[]
 }
 
 /**
- * Login findFirstOrThrow
+ * login findFirstOrThrow
  */
-export type LoginFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * Filter, which Login to fetch.
+   * Filter, which login to fetch.
    */
-  where?: Prisma.LoginWhereInput
+  where?: Prisma.loginWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Logins to fetch.
+   * Determine the order of logins to fetch.
    */
-  orderBy?: Prisma.LoginOrderByWithRelationInput | Prisma.LoginOrderByWithRelationInput[]
+  orderBy?: Prisma.loginOrderByWithRelationInput | Prisma.loginOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Logins.
+   * Sets the position for searching for logins.
    */
-  cursor?: Prisma.LoginWhereUniqueInput
+  cursor?: Prisma.loginWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Logins from the position of the cursor.
+   * Take `±n` logins from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Logins.
+   * Skip the first `n` logins.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Logins.
+   * Filter by unique combinations of logins.
    */
   distinct?: Prisma.LoginScalarFieldEnum | Prisma.LoginScalarFieldEnum[]
 }
 
 /**
- * Login findMany
+ * login findMany
  */
-export type LoginFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * Filter, which Logins to fetch.
+   * Filter, which logins to fetch.
    */
-  where?: Prisma.LoginWhereInput
+  where?: Prisma.loginWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Logins to fetch.
+   * Determine the order of logins to fetch.
    */
-  orderBy?: Prisma.LoginOrderByWithRelationInput | Prisma.LoginOrderByWithRelationInput[]
+  orderBy?: Prisma.loginOrderByWithRelationInput | Prisma.loginOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing Logins.
+   * Sets the position for listing logins.
    */
-  cursor?: Prisma.LoginWhereUniqueInput
+  cursor?: Prisma.loginWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Logins from the position of the cursor.
+   * Take `±n` logins from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Logins.
+   * Skip the first `n` logins.
    */
   skip?: number
   distinct?: Prisma.LoginScalarFieldEnum | Prisma.LoginScalarFieldEnum[]
 }
 
 /**
- * Login create
+ * login create
  */
-export type LoginCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * The data needed to create a Login.
+   * The data needed to create a login.
    */
-  data: Prisma.XOR<Prisma.LoginCreateInput, Prisma.LoginUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.loginCreateInput, Prisma.loginUncheckedCreateInput>
 }
 
 /**
- * Login createMany
+ * login createMany
  */
-export type LoginCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many Logins.
+   * The data used to create many logins.
    */
-  data: Prisma.LoginCreateManyInput | Prisma.LoginCreateManyInput[]
+  data: Prisma.loginCreateManyInput | Prisma.loginCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * Login createManyAndReturn
+ * login createManyAndReturn
  */
-export type LoginCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.loginSelectCreateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * The data used to create many Logins.
+   * The data used to create many logins.
    */
-  data: Prisma.LoginCreateManyInput | Prisma.LoginCreateManyInput[]
+  data: Prisma.loginCreateManyInput | Prisma.loginCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * Login update
+ * login update
  */
-export type LoginUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * The data needed to update a Login.
+   * The data needed to update a login.
    */
-  data: Prisma.XOR<Prisma.LoginUpdateInput, Prisma.LoginUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.loginUpdateInput, Prisma.loginUncheckedUpdateInput>
   /**
-   * Choose, which Login to update.
+   * Choose, which login to update.
    */
-  where: Prisma.LoginWhereUniqueInput
+  where: Prisma.loginWhereUniqueInput
 }
 
 /**
- * Login updateMany
+ * login updateMany
  */
-export type LoginUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update Logins.
+   * The data used to update logins.
    */
-  data: Prisma.XOR<Prisma.LoginUpdateManyMutationInput, Prisma.LoginUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.loginUpdateManyMutationInput, Prisma.loginUncheckedUpdateManyInput>
   /**
-   * Filter which Logins to update
+   * Filter which logins to update
    */
-  where?: Prisma.LoginWhereInput
+  where?: Prisma.loginWhereInput
   /**
-   * Limit how many Logins to update.
+   * Limit how many logins to update.
    */
   limit?: number
 }
 
 /**
- * Login updateManyAndReturn
+ * login updateManyAndReturn
  */
-export type LoginUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.loginSelectUpdateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * The data used to update Logins.
+   * The data used to update logins.
    */
-  data: Prisma.XOR<Prisma.LoginUpdateManyMutationInput, Prisma.LoginUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.loginUpdateManyMutationInput, Prisma.loginUncheckedUpdateManyInput>
   /**
-   * Filter which Logins to update
+   * Filter which logins to update
    */
-  where?: Prisma.LoginWhereInput
+  where?: Prisma.loginWhereInput
   /**
-   * Limit how many Logins to update.
+   * Limit how many logins to update.
    */
   limit?: number
 }
 
 /**
- * Login upsert
+ * login upsert
  */
-export type LoginUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * The filter to search for the Login to update in case it exists.
+   * The filter to search for the login to update in case it exists.
    */
-  where: Prisma.LoginWhereUniqueInput
+  where: Prisma.loginWhereUniqueInput
   /**
-   * In case the Login found by the `where` argument doesn't exist, create a new Login with this data.
+   * In case the login found by the `where` argument doesn't exist, create a new login with this data.
    */
-  create: Prisma.XOR<Prisma.LoginCreateInput, Prisma.LoginUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.loginCreateInput, Prisma.loginUncheckedCreateInput>
   /**
-   * In case the Login was found with the provided `where` argument, update it with this data.
+   * In case the login was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.LoginUpdateInput, Prisma.LoginUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.loginUpdateInput, Prisma.loginUncheckedUpdateInput>
 }
 
 /**
- * Login delete
+ * login delete
  */
-export type LoginDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
   /**
-   * Filter which Login to delete.
+   * Filter which login to delete.
    */
-  where: Prisma.LoginWhereUniqueInput
+  where: Prisma.loginWhereUniqueInput
 }
 
 /**
- * Login deleteMany
+ * login deleteMany
  */
-export type LoginDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Logins to delete
+   * Filter which logins to delete
    */
-  where?: Prisma.LoginWhereInput
+  where?: Prisma.loginWhereInput
   /**
-   * Limit how many Logins to delete.
+   * Limit how many logins to delete.
    */
   limit?: number
 }
 
 /**
- * Login without action
+ * login without action
  */
-export type LoginDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type loginDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Login
+   * Select specific fields to fetch from the login
    */
-  select?: Prisma.LoginSelect<ExtArgs> | null
+  select?: Prisma.loginSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Login
+   * Omit specific fields from the login
    */
-  omit?: Prisma.LoginOmit<ExtArgs> | null
+  omit?: Prisma.loginOmit<ExtArgs> | null
 }

@@ -13,7 +13,7 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
+model users {
   id      Int      @id @default(autoincrement())
   email   String   @unique
   entries Int      @default(0)
@@ -22,7 +22,7 @@ model User {
   surname String?
 }
 
-model Login {
+model login {
   id    Int      @id @default(autoincrement())
   email String   @unique
   hash  String   @unique

@@ -3,8 +3,7 @@ require("dotenv-flow").config();
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-const { PrismaClient } = require("./prisma/generated/client.mts");
-const { withAccelerate } = require("@prisma/extension-accelerate");
+const prisma = require("./prisma.js");
 
 // IMPORTING ALL CONTROLLERS/HANDLERS
 const signIn = require("./Controllers/prisma/signIn.js");
@@ -12,8 +11,7 @@ const register = require("./Controllers/prisma/register.js");
 const profile = require("./Controllers/prisma/profile.js");
 const image = require("./Controllers/prisma/image.js");
 
-// INITIALIZING THE EXPRESS APP AND PRISMA CLIENT
-const prisma = new PrismaClient().$extends(withAccelerate());
+// INITIALIZING THE EXPRESS APP
 const app = express();
 
 // MIDDLEWARE
@@ -22,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 
-// Test database connection -- Online db server using Prisma Client.
+// Test database connection to Online Prisma Client db.
 app.get("/", async (req, res) => {
   try {
     await prisma.$connect();
@@ -34,10 +32,10 @@ app.get("/", async (req, res) => {
   }
 });
 
-// Get all users -- Online db server using Prisma Client.
+// Get all users from Online Prisma Client db.
 app.get("/users", async (req, res) => {
   try {
-    const users = await prisma.user.findMany();
+    const users = await prisma.users.findMany();
     res.json(users);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -64,8 +62,8 @@ app.post("/imageURL", (req, res) => {
 // SERVER LISTENING PORT
 app.listen(process.env.PORT, () => {
   console.log(`
-    SERVER is working on PORT ${process.env.PORT} \n
-    The process.env.NODE_ENV is ${process.env.NODE_ENV}.
+    SERVER currently working on PORT ${process.env.PORT} and 
+    The node environment is in ${process.env.NODE_ENV}.
   `);
 });
 

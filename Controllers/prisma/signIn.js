@@ -18,11 +18,11 @@ const handleSignIn = async (prisma, bcrypt, req, res) => {
         }
 
         // Validate password
-        const isValid = bcrypt.compareSync(password, login.hash);
+        const isValid = bcrypt.compare(password, login.hash);
 
         if (isValid) {
             // Find user by email
-            const user = await prisma.user.findUnique({
+            const user = await prisma.users.findUnique({
                 where: { email },
             });
 

@@ -8,7 +8,7 @@ const handleRegister = async (prisma, bcrypt, req, res) => {
 
     try {
         // Hash password
-        const hash = bcrypt.hashSync(password);
+        const hash = await bcrypt.hash(password, 10);
 
         // Start transaction
         await prisma.$transaction(async (prisma) => {
@@ -21,7 +21,7 @@ const handleRegister = async (prisma, bcrypt, req, res) => {
             });
 
             // Create user record
-            const user = await prisma.user.create({
+            const user = await prisma.users.create({
                 data: {
                 name,
                 surname,
@@ -30,10 +30,9 @@ const handleRegister = async (prisma, bcrypt, req, res) => {
                 },
             });
 
+            res.json({ message: "Registration successful", user });
             return user;
         });
-
-        res.json({ message: "Registration successful", user });
     } catch (err) {
         console.error("Registration error:", err);
         res.status(400).json("Registration Unsuccessful.");

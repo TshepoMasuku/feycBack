@@ -8,7 +8,7 @@
  * Use it to get access to models, enums, and input types.
  * 
  * This file does not contain a `PrismaClient` class, nor several other helpers that are intended as server-side only.
- * See `client.ts` for the standard, server-side entry point.
+ * See `client.mts` for the standard, server-side entry point.
  *
  * 🟢 You can import this file directly.
  */
@@ -18,12 +18,12 @@ export { Prisma }
 export * as $Enums from './enums.mts'
 export * from './enums.mts';
 /**
- * Model User
+ * Model users
  * 
  */
-export type User = Prisma.UserModel
+export type users = Prisma.usersModel
 /**
- * Model Login
+ * Model login
  * 
  */
-export type Login = Prisma.LoginModel
+export type login = Prisma.loginModel

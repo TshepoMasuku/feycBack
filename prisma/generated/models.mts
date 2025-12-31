@@ -8,6 +8,6 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/User.mts'
-export type * from './models/Login.mts'
+export type * from './models/users.mts'
+export type * from './models/login.mts'
 export type * from './commonInputTypes.mts'

@@ -8,7 +8,7 @@
  *
  * 🛑 Under no circumstances should you import this file directly! 🛑
  *
- * All exports from this file are wrapped under a `Prisma` namespace object in the browser.ts file.
+ * All exports from this file are wrapped under a `Prisma` namespace object in the browser.mts file.
  * While this enables partial backward compatibility, it is not part of the stable public API.
  *
  * If you are looking for your Models, Enums, and Input Types, please import them from the respective
@@ -51,8 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  User: 'User',
-  Login: 'Login'
+  users: 'users',
+  login: 'login'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -71,7 +71,7 @@ export const TransactionIsolationLevel = {
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const UserScalarFieldEnum = {
+export const UsersScalarFieldEnum = {
   id: 'id',
   email: 'email',
   entries: 'entries',
@@ -80,7 +80,7 @@ export const UserScalarFieldEnum = {
   surname: 'surname'
 } as const
 
-export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
 export const LoginScalarFieldEnum = {

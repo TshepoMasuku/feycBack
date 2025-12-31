@@ -1,15 +1,20 @@
-const { PrismaClient } = require("./generated/prisma/client.mts");
+const { PrismaClient } = require("./prisma/generated/client.mts");
 const { withAccelerate } = require("@prisma/extension-accelerate");
+
 
 // FOR INITIALIZING A PRISMA PG DB INSTANCE
 let prisma;
 
 if (process.env.NODE_ENV === "production") {
-  prisma = new PrismaClient().$extends(withAccelerate());
+  prisma = new PrismaClient({
+    accelerateUrl: process.env.DATABASE_URL,
+  }).$extends(withAccelerate());
 } else {
   // Prevent multiple instances during development
   if (!global.prisma) {
-    global.prisma = new PrismaClient().$extends(withAccelerate());
+    global.prisma = new PrismaClient({
+      accelerateUrl: process.env.DATABASE_URL,
+    }).$extends(withAccelerate());
   }
   prisma = global.prisma;
 }

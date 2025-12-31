@@ -5,7 +5,7 @@
 // @ts-nocheck 
 /*
  * This file should be your main import to use Prisma. Through it you get access to all the models, enums, and input types.
- * If you're looking for something you can import in the client-side of your application, please refer to the `browser.ts` file instead.
+ * If you're looking for something you can import in the client-side of your application, please refer to the `browser.mts` file instead.
  *
  * 🟢 You can import this file directly.
  */
@@ -30,7 +30,7 @@ export * from "./enums.mts"
  * ```
  * const prisma = new PrismaClient()
  * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * const users = await prisma.users.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -40,12 +40,12 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model User
+ * Model users
  * 
  */
-export type User = Prisma.UserModel
+export type users = Prisma.usersModel
 /**
- * Model Login
+ * Model login
  * 
  */
-export type Login = Prisma.LoginModel
+export type login = Prisma.loginModel
