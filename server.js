@@ -60,9 +60,9 @@ app.post("/imageURL", (req, res) => {
 
 
 // SERVER LISTENING PORT
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, '0.0.0.0', () => {
   console.log(`
-    SERVER currently working on PORT ${process.env.PORT} and 
+    SERVER currently working on PORT: ${process.env.PORT} and 
     The node environment is in ${process.env.NODE_ENV}.
   `);
 });
