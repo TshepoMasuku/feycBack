@@ -3,7 +3,7 @@ require("dotenv-flow").config();
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-const prisma = require("./prisma.js");
+const prisma = require("./prisma/generated/client.mts");
 const Clarifai = require('clarifai'); 
 
 

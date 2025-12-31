@@ -13,13 +13,13 @@ const image = require("./Controllers/knex/image.js");
 
 // FOR RUNNING SERVER
 const db = knex({
-    client: "pg",
-    connection: {
-        host: "127.0.0.1",
-        user: "postgres",
-        password: process.env.DATABASE_PASSWORD_LOCAL,
-        database: "smartbrain"
-    }
+  client: "pg",
+  connection: {
+    host: "127.0.0.1",
+    user: "postgres",
+    password: process.env.DATABASE_PASSWORD_LOCAL,
+    database: "smartbrain"
+  }
 })
 
 const app = express();
