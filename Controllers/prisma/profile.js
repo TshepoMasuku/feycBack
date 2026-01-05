@@ -3,7 +3,7 @@ const handleProfile = async (prisma, req, res) => {
         const { id } = req.params;
 
         // Find user by ID
-        const user = await prisma.user.findUnique({
+        const user = await prisma.users.findUnique({
         where: { 
                 id: Number(id)  // Ensure 'id' is a number
             },
