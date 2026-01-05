@@ -3,7 +3,10 @@ require("dotenv-flow").config();
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-const prisma = require("./prisma/generated/client.mts");
+// const { PrismaClient } = require("@prisma/client/default.js");
+const { PrismaClient } = require("@prisma/client");
+const { withAccelerate } = require("@prisma/extension-accelerate");
+
 
 // IMPORTING ALL CONTROLLERS/HANDLERS
 const signIn = require("./Controllers/prisma/signIn.js");
@@ -13,6 +16,7 @@ const image = require("./Controllers/prisma/image.js");
 
 // INITIALIZING THE EXPRESS APP
 const app = express();
+const prisma = new PrismaClient().$extends(withAccelerate());
 
 // MIDDLEWARE
 app.use(express.json());

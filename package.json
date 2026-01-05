@@ -15,6 +15,7 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
+    "init": "npm install && npx prisma generate",
     "start": "node server.js",
     "start:dev": "nodemon server.js",
     "prisma:studio": "prisma studio",
